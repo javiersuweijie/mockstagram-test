@@ -1,0 +1,5 @@
+2018-11-24 19:02:46,978 2291 [main] WARN  o.a.k.c.consumer.ConsumerConfig - The configuration 'admin.retries' was supplied but isn't a known config.
+2018-11-24 19:02:47,049 2362 [main] WARN  o.a.k.c.consumer.ConsumerConfig - The configuration 'admin.retries' was supplied but isn't a known config.
+2018-11-24 19:02:47,088 2401 [main] WARN  o.a.k.c.consumer.ConsumerConfig - The configuration 'admin.retries' was supplied but isn't a known config.
+2018-11-24 19:02:49,280 4593 [Finalizer] WARN  c.ning.http.client.AsyncHttpClient - AsyncHttpClient.close() hasn't been invoked, which may produce file descriptor leaks
+2018-11-24 19:02:49,282 4595 [Finalizer] WARN  c.ning.http.client.AsyncHttpClient - AsyncHttpClient.close() hasn't been invoked, which may produce file descriptor leaks
