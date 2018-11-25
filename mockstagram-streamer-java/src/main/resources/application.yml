@@ -1,8 +1,12 @@
 server:
   port: 9001
+  host: 0.0.0.0
 
 spring.application.name: mockstagram-steamer
 
 kafka:
   host: localhost:9092
   partitions: 2
+
+mockstagram:
+  url: "http://localhost:3000/api/v1/influencers/"

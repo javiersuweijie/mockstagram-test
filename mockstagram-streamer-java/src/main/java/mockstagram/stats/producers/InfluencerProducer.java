@@ -14,7 +14,6 @@ public class InfluencerProducer {
 
     private Producer<Long, InfluencerStats> producer;
     private String topic;
-    private AtomicLong count = new AtomicLong();
 
     public InfluencerProducer(String bootstrapServers, String clientId, String topic) {
         Properties props = new Properties();
@@ -29,10 +28,6 @@ public class InfluencerProducer {
 
     public Future<RecordMetadata> send(InfluencerStats influencerStats) {
         ProducerRecord<Long, InfluencerStats> record = new ProducerRecord(topic, 0, System.currentTimeMillis(), null, influencerStats);
-        if (count.longValue() > 0 && count.longValue() % 100000 == 0) {
-            System.out.println("Produced: " + count + System.currentTimeMillis()/1000);
-        }
-        count.addAndGet(1);
         return producer.send(record);
     }
 

@@ -2,8 +2,8 @@ package mockstagram.stats.controllers;
 
 import mockstagram.stats.models.InfluencerStats;
 import mockstagram.stats.streams.AggregateStatsByTimeWindow;
-import mockstagram.stats.streams.AverageFollower;
 import mockstagram.stats.streams.LatestStats;
+import mockstagram.stats.streams.RankInfluencers;
 import org.apache.kafka.streams.KafkaStreams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +25,8 @@ public class InfluencerStatsController {
     @Autowired
     LatestStats latestStats;
 
-//    @Autowired
-//    AverageFollower averageFollower;
+    @Autowired
+    RankInfluencers rankInfluencers;
 
     @RequestMapping(value = "/influencers/{pk}")
     public ResponseEntity<List<InfluencerStats>> getFollowersByPK(
@@ -43,6 +43,13 @@ public class InfluencerStatsController {
     @RequestMapping(value = "/influencers/average")
     public ResponseEntity<Double> getLatestStatsByPK() {
         return ResponseEntity.ok(latestStats.queryAverageFollower());
+    }
+
+    @RequestMapping(value = "/influencers/{pk}/rank")
+    public ResponseEntity<Long> getRankByPK(
+            @PathVariable(value = "pk", required = true) Long pk) {
+
+        return ResponseEntity.ok(rankInfluencers.queryRank(pk));
     }
 
 
